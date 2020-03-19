@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
 
-const GesturesStyled = {
+export default {
   root: styled.div`
+    display:block;
+  `,
+
+  mainPage: styled.div`
     padding:30px;
   `,
 
@@ -22,5 +26,3 @@ const GesturesStyled = {
     }
   `
 }
-
-export default GesturesStyled

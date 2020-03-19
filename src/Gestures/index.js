@@ -4,9 +4,9 @@ import PanelsApp from "./Panels";
 import GesturesStyled from "./Gestures.styled";
 
 const MainPage = () => (
-  <div>
+  <GesturesStyled.mainPage>
     <Link to="/gestures/panels">Panels App</Link>
-  </div>
+  </GesturesStyled.mainPage>
 );
 
 const GesturesPage = ({ match }) => (

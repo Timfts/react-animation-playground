@@ -1,18 +1,15 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-
 import { BaseStyles } from "styles";
 
 const GesturesPage = lazy(() => import("./Gestures"));
 
-const MainMenu = () => {
-  return (
-    <div>
-      <Link to="/gestures">Gestures</Link>
-    </div>
-  );
-};
+const MainMenu = () => (
+  <div>
+    <Link to="/gestures">Gestures</Link>
+  </div>
+);
 
 const App = () => (
   <Router>
