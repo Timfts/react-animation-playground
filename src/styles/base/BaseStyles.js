@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const BaseStyles = createGlobalStyle`
   *,
@@ -12,6 +12,10 @@ const BaseStyles = createGlobalStyle`
   body {
     font-family: 'Montserrat', sans-serif;
     font-weight:300; 
+  }
+
+  a {
+    text-decoration: none;
   }
 `;
 
