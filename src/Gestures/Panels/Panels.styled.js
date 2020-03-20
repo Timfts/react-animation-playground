@@ -16,6 +16,14 @@ export default {
     left:0;
     right:0;
     height:65%;
-  
+  `,
+
+  panel: styled.div`
+    position:absolute;
+    bottom:0;
+    width:300px;
+    height:80%;
+    background-color:white;
+    left: calc(50% - 150px);
   `
 }

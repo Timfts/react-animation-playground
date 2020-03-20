@@ -9,16 +9,16 @@ const MainPage = () => (
   </GesturesStyled.mainPage>
 );
 
-const GesturesPage = ({ match }) => (
-  <GesturesStyled.root>
-    <Switch>
-      <Route exact path={match.url} component={MainPage} />
-      <Route path={`${match.url}/panels`} component={PanelsApp} />
-    </Switch>
-    <GesturesStyled.desktopOverlay>
-      Please, open on a mobile device or use the chrome devTools
-    </GesturesStyled.desktopOverlay>
-  </GesturesStyled.root>
-);
-
-export default GesturesPage;
+export default function GesturesPage({ match }) {
+  return (
+    <GesturesStyled.root>
+      <Switch>
+        <Route exact path={match.url} component={MainPage} />
+        <Route path={`${match.url}/panels`} component={PanelsApp} />
+      </Switch>
+      <GesturesStyled.desktopOverlay>
+        Please, open on a mobile device or use the chrome devTools
+      </GesturesStyled.desktopOverlay>
+    </GesturesStyled.root>
+  );
+}
