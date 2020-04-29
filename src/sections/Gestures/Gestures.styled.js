@@ -8,6 +8,9 @@ export default {
 
   mainPage: styled.div`
     padding:30px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
   `,
 
   desktopOverlay: styled.div`
