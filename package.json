@@ -16,6 +16,7 @@
     "react-scripts": "3.4.0",
     "react-spring": "^8.0.27",
     "react-transition-group": "^4.3.0",
+    "react-use-gesture": "^7.0.15",
     "styled-components": "^5.0.1",
     "typeface-montserrat": "^0.0.75"
   },
