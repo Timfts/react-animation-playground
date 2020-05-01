@@ -1,11 +1,13 @@
 import { useRef, useState } from "react";
 import { useDrag } from "react-use-gesture";
 import { useSpring } from "react-spring";
+import useWindow from "hooks/useWindow";
 
 export default function useMusicPlayer() {
   const nowPlayingRef = useRef(null);
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-  const windowHeight = window.innerHeight;
+  const { windowSize } = useWindow();
+  const windowHeight = windowSize.height;
 
   const [{ drawerYPosition }, set] = useSpring(() => ({
     drawerYPosition: 0,

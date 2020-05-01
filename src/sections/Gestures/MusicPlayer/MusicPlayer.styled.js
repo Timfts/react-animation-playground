@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { rgba, lighten } from "polished";
+import { rgba } from "polished";
 import {animatedStyled} from "utils/animatedStyled"
 import { animated } from 'react-spring'
 
@@ -31,6 +31,7 @@ export default {
     background-color: #f6772d;
     display: flex;
     border-top: 1px solid black;
+    
   `,
 
   playerDrawer: animatedStyled(animated.div, ['windowHeight'])`
@@ -40,7 +41,7 @@ export default {
     width: 100%;
     background-color: #48c68d;
     min-height: 100vh;
-    top: ${(props) => props.windowHeight - 150}px;
+    bottom:calc(-100vh + 160px);
   `,
 
 };

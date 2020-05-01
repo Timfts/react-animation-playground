@@ -7,7 +7,6 @@ export default function MusicPlayerApp() {
   const {
     nowPlayingRef,
     drawerYPosition,
-    windowHeight,
     toggleDrawer
   } = useMusicPlayer();
 
@@ -17,7 +16,6 @@ export default function MusicPlayerApp() {
       <button onClick={toggleDrawer}>open drawer</button>
       <S.playerDrawer
         ref={nowPlayingRef}
-        windowHeight={windowHeight}
         style={{
           transform: drawerYPosition.interpolate(
             (y) => `translate3D(0, ${y}px, 0)`
