@@ -36,12 +36,12 @@ export default {
 
   playerDrawer: animatedStyled(animated.div, ['windowHeight'])`
     position: fixed;
-    height: 160px;
+    height: 140px;
     will-change:transform;
     width: 100%;
     background-color: #48c68d;
     min-height: 100vh;
-    bottom:calc(-100vh + 160px);
+    bottom:calc(-100vh + 140px);
   `,
 
 };
