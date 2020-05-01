@@ -2,9 +2,6 @@ import React from "react";
 import S from "./MusicPlayer.styled";
 import useMusicPlayer from "./MusicPlayer.hook";
 
-/**
- * inspired by
- */
 
 export default function MusicPlayerApp() {
   const {
