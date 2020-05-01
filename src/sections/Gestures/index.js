@@ -3,7 +3,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import S from "./Gestures.styled";
 
 const PanelsApp = lazy(() => import("./Panels"));
-const MusicPlayerApp = lazy(() => import("./musicPlayer"))
+const MusicPlayerApp = lazy(() => import("./MusicPlayer"))
 
 const MainPage = () => (
   <S.mainPage>

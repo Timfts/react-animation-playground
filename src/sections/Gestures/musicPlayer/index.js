@@ -1,6 +1,6 @@
 import React from "react";
-import S from "./musicPlayer.styled";
-import useMusicPlayer from "./musicPlayer.hook";
+import S from "./MusicPlayer.styled";
+import useMusicPlayer from "./MusicPlayer.hook";
 
 /**
  * inspired by
@@ -10,14 +10,14 @@ export default function MusicPlayer() {
   const {
     nowPlayingRef,
     drawerYPosition,
-    setDrawerOpen,
     windowHeight,
+    toggleDrawer
   } = useMusicPlayer();
 
   return (
     <S.root>
-      <S.backdrop teste="cenoura" />
-      <button onClick={setDrawerOpen}>open drawer</button>
+      <S.backdrop />
+      <button onClick={toggleDrawer}>open drawer</button>
       <S.playerDrawer
         ref={nowPlayingRef}
         windowHeight={windowHeight}
@@ -27,7 +27,6 @@ export default function MusicPlayer() {
           ),
         }}
       />
-      <S.test windowHeight="30">batata</S.test>
       <S.menu />
     </S.root>
   );

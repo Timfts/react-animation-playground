@@ -5,7 +5,7 @@ import { animated } from 'react-spring'
 
 export default {
   root: styled.div`
-    background-color: green;
+    background-color: rgb(254,252,202);
     height: 100vh;
     width: 100%;
     position: relative;
@@ -28,7 +28,7 @@ export default {
     left: 0;
     right: 0;
     height: 70px;
-    background-color: ${lighten(0.3, "black")};
+    background-color: #f6772d;
     display: flex;
     border-top: 1px solid black;
   `,
@@ -36,16 +36,13 @@ export default {
   playerDrawer: animatedStyled(animated.div, ['windowHeight'])`
     position: fixed;
     height: 160px;
+    will-change:transform;
     width: 100%;
-    background-color: blue;
-    min-height: calc(100vh - 500px);
+    background-color: #48c68d;
+    min-height: 100vh;
     top: ${(props) => props.windowHeight - 150}px;
   `,
 
-  test: animatedStyled(animated.div, ['windowHeight'])`
-    background-color:red;
-    height:500px;
-  `
 };
 
 
