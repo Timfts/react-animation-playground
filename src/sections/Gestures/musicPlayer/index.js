@@ -6,7 +6,7 @@ import useMusicPlayer from "./MusicPlayer.hook";
  * inspired by
  */
 
-export default function MusicPlayer() {
+export default function MusicPlayerApp() {
   const {
     nowPlayingRef,
     drawerYPosition,
