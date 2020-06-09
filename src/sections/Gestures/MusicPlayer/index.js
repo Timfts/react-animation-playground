@@ -6,8 +6,9 @@ import useMusicPlayer from "./MusicPlayer.hook";
 export default function MusicPlayerApp() {
   const {
     nowPlayingRef,
-    drawerYPosition,
-    toggleDrawer
+    toggleDrawer,
+    dragEventCreator,
+    playerDrawerYMoviment
   } = useMusicPlayer();
 
   return (
@@ -16,11 +17,8 @@ export default function MusicPlayerApp() {
       <button onClick={toggleDrawer}>open drawer</button>
       <S.playerDrawer
         ref={nowPlayingRef}
-        style={{
-          transform: drawerYPosition.interpolate(
-            (y) => `translate3D(0, ${y}px, 0)`
-          ),
-        }}
+        style={playerDrawerYMoviment}
+        {...dragEventCreator()}
       />
       <S.menu />
     </S.root>
