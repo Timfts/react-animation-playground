@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { useDrag } from "react-use-gesture";
 import { useSpring, config } from "react-spring";
 import useWindow from "hooks/useWindow";
+import useChromeAddressBarColor from "hooks/useChromeAddresbarColor";
+import { colors } from "./MusicPlayer.theme";
 
 export default function useMusicPlayer() {
   /* states, values and its setters */
@@ -80,6 +82,9 @@ export default function useMusicPlayer() {
       bounds: { bottom: 0, top: drawerThreshold },
     }
   );
+
+  // change android chrome theme color on page load
+  useChromeAddressBarColor({ colorHexa: colors["ebony-clay"] });
 
   return {
     nowPlayingRef,
