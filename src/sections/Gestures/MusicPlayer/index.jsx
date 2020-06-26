@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import S from "./MusicPlayer.styled";
 import useMusicPlayer from "./MusicPlayer.hook";
 
