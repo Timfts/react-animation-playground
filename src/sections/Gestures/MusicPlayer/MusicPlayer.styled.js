@@ -24,17 +24,6 @@ export default {
     display: none;
   `,
 
-  Menu: styled.div`
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
-    background-color: #f6772d;
-    display: flex;
-    border-top: 1px solid black;
-  `,
-
   PlayerDrawer: animatedStyled(animated.div, ["windowHeight"])`
     position: fixed;
     will-change:transform;

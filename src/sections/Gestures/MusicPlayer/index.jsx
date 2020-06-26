@@ -2,13 +2,15 @@ import React from "react";
 import S from "./MusicPlayer.styled";
 import useMusicPlayer from "./MusicPlayer.hook";
 
+import MainMenu from "./components/MainMenu";
+
 
 export default function MusicPlayerApp() {
   const {
     nowPlayingRef,
     toggleDrawer,
     dragEventCreator,
-    playerDrawerYMoviment
+    playerDrawerYMoviment,
   } = useMusicPlayer();
 
   return (
@@ -20,7 +22,7 @@ export default function MusicPlayerApp() {
         style={playerDrawerYMoviment}
         {...dragEventCreator()}
       />
-      <S.Menu />
+      <MainMenu />
     </S.Root>
   );
 }
