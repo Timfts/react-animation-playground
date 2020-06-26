@@ -1,14 +1,15 @@
 import styled from "styled-components";
-import { rgba } from "polished";
+import { rgba, darken } from "polished";
 import { animatedStyled } from "utils/animatedStyled";
 import { animated } from "react-spring";
+import { colors } from "./MusicPlayer.theme";
 
 const drawerHeight = "140px";
 
 export default {
   Root: styled.div`
     background-color: rgb(254, 252, 202);
-    height: ${props => props.windowHeight};
+    height: ${(props) => props.windowHeight};
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -33,7 +34,7 @@ export default {
     position: fixed;
     will-change:transform;
     width: 100%;
-    background-color: #48c68d;
+    background-color: ${darken(0.05, colors["ebony-clay"])};
     min-height: 100vh;
     bottom:calc(-100vh + ${drawerHeight});
   `,
