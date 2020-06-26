@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import { rgba } from "polished";
-import {animatedStyled} from "utils/animatedStyled"
-import { animated } from 'react-spring'
+import { animatedStyled } from "utils/animatedStyled";
+import { animated } from "react-spring";
+
+const drawerHeight = "140px";
 
 export default {
-  root: styled.div`
-    background-color: rgb(254,252,202);
+  Root: styled.div`
+    background-color: rgb(254, 252, 202);
     height: 100vh;
     width: 100%;
     position: relative;
     overflow: hidden;
   `,
 
-  backdrop: styled.div`
+  Backdrop: styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -22,7 +24,7 @@ export default {
     display: none;
   `,
 
-  menu: styled.div`
+  Menu: styled.div`
     position: fixed;
     bottom: 0;
     left: 0;
@@ -31,19 +33,14 @@ export default {
     background-color: #f6772d;
     display: flex;
     border-top: 1px solid black;
-    
   `,
 
-  playerDrawer: animatedStyled(animated.div, ['windowHeight'])`
+  PlayerDrawer: animatedStyled(animated.div, ["windowHeight"])`
     position: fixed;
-    height: 140px;
     will-change:transform;
     width: 100%;
     background-color: #48c68d;
     min-height: 100vh;
-    bottom:calc(-100vh + 140px);
+    bottom:calc(-100vh + ${drawerHeight});
   `,
-
 };
-
-

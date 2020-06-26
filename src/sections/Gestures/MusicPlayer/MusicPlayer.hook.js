@@ -17,10 +17,12 @@ export default function useMusicPlayer() {
     transform: drawerYPosition.interpolate((y) => `translate3D(0, ${y}px, 0)`),
   };
 
+  const drawerThreshold = -(windowHeight - 140 - 80);
+
   function toggleDrawer() {
     setDrawerOpen(!isDrawerOpen);
     setYposition({
-      drawerYPosition: isDrawerOpen ? 0 : -(windowHeight - 140 - 80),
+      drawerYPosition: isDrawerOpen ? 0 : drawerThreshold,
       config: {
         tension: 247,
         friction: 27,
@@ -29,43 +31,55 @@ export default function useMusicPlayer() {
     });
   }
 
-  const dragEventCreator = useDrag((dragData) => {
-    const {
+  function openDrawer(velocity = 0) {
+    setDrawerOpen(true);
+    setYposition({
+      drawerYPosition: drawerThreshold,
+      config: {
+        tension: 247,
+        friction: 27,
+        velocity,
+      },
+    });
+  }
+
+  const dragEventCreator = useDrag(
+    ({
       movement,
-      last: isLastEvent,
       memo,
       down,
       cancel,
+      last: isLastEvent,
       active: isDragActive,
-    } = dragData;
-    const startedDragging = false;
+      vxvy: movementVelocity,
+    }) => {
+      const [mx, my] = movement;
+      const [, velocityY] = movementVelocity;
 
-    const [mx, my] = movement;
-    const isClick =
-      isLastEvent && Math.abs(mx) + Math.abs(my) <= 3 && !isDrawerOpen;
+      // when drawer reaches the threshold
+      if (my < drawerThreshold) cancel(); 
+      // when user stop dragging or just tapped drawer
+      if (isLastEvent) {
+        const userClickedDrawer = Math.abs(mx) + Math.abs(my) <= 3;
+        const userDraggedFast = velocityY < -0.10;
+        if (userDraggedFast) openDrawer(velocityY);
+        else if (userClickedDrawer) toggleDrawer();
+      }
 
-    console.log(my)
-
-    if (isClick) {
-      toggleDrawer();
-    } else if(my < -500){
-      cancel()
+      // when dragging is happening
+      if (isDragActive) {
+        setYposition({
+          drawerYPosition: my,
+          immediate: false,
+          config: config.stiff,
+        });
+      }
+    },
+    {
+      rubberband: true,
+      bounds: { bottom: 0, top: drawerThreshold },
     }
-    
-    else if (isDragActive) {
-      setYposition({
-        drawerYPosition: my,
-        immediate: false,
-        config: config.stiff,
-      });
-    }
-
-    // if is click
-    // if stopped dragging
-    // enable body scroll again
-    // set drag position to the projected endpoint (up or down based on the last position when stopped draggin')
-    // if is still dragging
-  }, {rubberband: true});
+  );
 
   return {
     nowPlayingRef,

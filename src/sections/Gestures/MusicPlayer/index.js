@@ -12,15 +12,15 @@ export default function MusicPlayerApp() {
   } = useMusicPlayer();
 
   return (
-    <S.root>
-      <S.backdrop />
+    <S.Root>
+      <S.Backdrop />
       <button onClick={toggleDrawer}>open drawer</button>
-      <S.playerDrawer
+      <S.PlayerDrawer
         ref={nowPlayingRef}
         style={playerDrawerYMoviment}
         {...dragEventCreator()}
       />
-      <S.menu />
-    </S.root>
+      <S.Menu />
+    </S.Root>
   );
 }
