@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { useDrag } from "react-use-gesture";
 import { useSpring, config } from "react-spring";
 import useWindow from "hooks/useWindow";
