@@ -9,12 +9,13 @@ export default {
     right: 0;
     background-color: ${colors["ebony-clay"]};
     color: ${colors["carnation"]};
-    max-height: 80px;
+    max-height: 90px;
   `,
   Container: styled.nav`
     width:100%;
     height:100%;
-    padding:18px 25px 10px 25px;
+    padding:10px 25px;
+    padding-bottom:5px;
     display:flex;
     justify-content:space-between;
   `
