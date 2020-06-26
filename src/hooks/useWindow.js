@@ -16,6 +16,7 @@ export default function useWindow() {
     const resizeEvent = window.addEventListener("resize", onWindowResize);
 
     return window.removeEventListener("resize", resizeEvent);
+    // eslint-disable-next-line
   }, []);
 
   return { windowSize };
