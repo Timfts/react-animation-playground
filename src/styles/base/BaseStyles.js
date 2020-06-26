@@ -16,6 +16,7 @@ const BaseStyles = createGlobalStyle`
   body {
     font-family: 'Montserrat', sans-serif;
     font-weight:300; 
+    overscroll-behavior-y: contain;
   }
 
   a {

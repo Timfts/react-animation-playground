@@ -15,6 +15,7 @@ export default {
     background-color: ${colors["ebony-clay"]};
     background-position: center;
     transition: background 0.8s;
+    user-select:none;
 
     &:hover {
       background: ${colors["ebony-clay"]}
