@@ -31,6 +31,7 @@ export default {
   `,
 
   PlayerDrawer: animatedStyled(animated.div, ["windowHeight"])`
+    border-radius:15px 15px;
     position: fixed;
     will-change:transform;
     width: 100%;
