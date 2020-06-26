@@ -10,11 +10,11 @@ const S = {
     justify-content: center;
     flex-grow: 0;
     flex-shrink: 0;
-    font-size: 12px;
   `,
 
   Label: styled.span`
     margin-top: 5px;
+    font-size: 10px;
   `,
 };
 
@@ -22,7 +22,7 @@ export default function MenuButton({ label, icon }) {
   const IconComponent = ioFont[icon] || {};
   return (
     <S.Root>
-      <IconComponent size={24} />
+      <IconComponent size={20} />
       <S.Label>{label}</S.Label>
     </S.Root>
   );

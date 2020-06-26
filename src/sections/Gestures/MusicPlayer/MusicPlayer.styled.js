@@ -8,7 +8,7 @@ const drawerHeight = "140px";
 export default {
   Root: styled.div`
     background-color: rgb(254, 252, 202);
-    height: 100vh;
+    height: ${props => props.windowHeight};
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -22,6 +22,11 @@ export default {
     bottom: 0;
     background-color: ${rgba("black", 0.5)};
     display: none;
+  `,
+
+  Content: styled.div`
+    height: 100%;
+    overflow-y: scroll;
   `,
 
   PlayerDrawer: animatedStyled(animated.div, ["windowHeight"])`

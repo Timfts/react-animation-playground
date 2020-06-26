@@ -9,6 +9,7 @@ export default function useMusicPlayer() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const { windowSize } = useWindow();
   const { height: windowHeight } = windowSize;
+  
   const [{ drawerYPosition }, setYposition] = useSpring(() => ({
     drawerYPosition: 0,
     config: { tension: 247, friction: 27 },
@@ -52,16 +53,17 @@ export default function useMusicPlayer() {
       last: isLastEvent,
       active: isDragActive,
       vxvy: movementVelocity,
+      event
     }) => {
       const [mx, my] = movement;
       const [, velocityY] = movementVelocity;
 
       // when drawer reaches the threshold
-      if (my < drawerThreshold) cancel(); 
+      if (my < drawerThreshold) cancel();
       // when user stop dragging or just tapped drawer
       if (isLastEvent) {
         const userClickedDrawer = Math.abs(mx) + Math.abs(my) <= 3;
-        const userDraggedFast = velocityY < -0.10;
+        const userDraggedFast = velocityY < -0.1;
         if (userDraggedFast) openDrawer(velocityY);
         else if (userClickedDrawer) toggleDrawer();
       }

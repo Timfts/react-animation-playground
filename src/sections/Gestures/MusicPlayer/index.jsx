@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import S from "./MusicPlayer.styled";
 import useMusicPlayer from "./MusicPlayer.hook";
 
 import MainMenu from "./components/MainMenu";
-
 
 export default function MusicPlayerApp() {
   const {
@@ -11,12 +10,15 @@ export default function MusicPlayerApp() {
     toggleDrawer,
     dragEventCreator,
     playerDrawerYMoviment,
+    windowHeight,
   } = useMusicPlayer();
 
   return (
-    <S.Root>
+    <S.Root windowHeight={`${windowHeight}px`}>
       <S.Backdrop />
-      <button onClick={toggleDrawer}>open drawer</button>
+      <S.Content>
+        <button onClick={toggleDrawer}>open drawer</button>
+      </S.Content>
       <S.PlayerDrawer
         ref={nowPlayingRef}
         style={playerDrawerYMoviment}

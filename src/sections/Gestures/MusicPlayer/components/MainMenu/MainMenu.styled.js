@@ -14,7 +14,7 @@ export default {
   Container: styled.nav`
     width:100%;
     height:100%;
-    padding:18px 25px 15px 25px;
+    padding:18px 25px 10px 25px;
     display:flex;
     justify-content:space-between;
   `
