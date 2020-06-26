@@ -7,18 +7,16 @@ export default function useMusicPlayer() {
   /* states, values and its setters */
   const nowPlayingRef = useRef(null);
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-  const { windowSize } = useWindow();
-  const { height: windowHeight } = windowSize;
-  
+  const windowHeight = useWindow()?.windowSize?.height;
+  const drawerThreshold = -(windowHeight - 140 - 80);
+
   const [{ drawerYPosition }, setYposition] = useSpring(() => ({
     drawerYPosition: 0,
     config: { tension: 247, friction: 27 },
   }));
-  const playerDrawerYMoviment = {
-    transform: drawerYPosition.interpolate((y) => `translate3D(0, ${y}px, 0)`),
-  };
-
-  const drawerThreshold = -(windowHeight - 140 - 80);
+  const playerDrawerYMoviment = drawerYPosition.interpolate(
+    (y) => `translate3D(0, ${y}px, 0)`
+  );
 
   function toggleDrawer() {
     setDrawerOpen(!isDrawerOpen);
@@ -53,7 +51,7 @@ export default function useMusicPlayer() {
       last: isLastEvent,
       active: isDragActive,
       vxvy: movementVelocity,
-      event
+      event,
     }) => {
       const [mx, my] = movement;
       const [, velocityY] = movementVelocity;

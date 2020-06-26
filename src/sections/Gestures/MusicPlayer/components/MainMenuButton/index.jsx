@@ -3,7 +3,6 @@ import * as ioFont from "react-icons/io";
 
 import S from './MainMenuButton.styled'
 
-
 export default function MenuButton({ label, icon }) {
   const IconComponent = ioFont[icon] || {};
   return (

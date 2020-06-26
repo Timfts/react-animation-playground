@@ -21,7 +21,7 @@ export default function MusicPlayerApp() {
       </S.Content>
       <S.PlayerDrawer
         ref={nowPlayingRef}
-        style={playerDrawerYMoviment}
+        style={{ transform: playerDrawerYMoviment }}
         {...dragEventCreator()}
       />
       <MainMenu />
