@@ -14,7 +14,7 @@ export default {
     border-radius:20px;
     background-color: ${colors["ebony-clay"]};
     background-position: center;
-    transition: background 0.8s;
+    transition: background 0.5s;
     user-select:none;
 
     &:hover {

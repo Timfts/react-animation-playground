@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useDrag } from "react-use-gesture";
 import { useSpring, config } from "react-spring";
 import useWindow from "hooks/useWindow";
@@ -33,6 +33,7 @@ export default function useMusicPlayer() {
   }
 
   function openDrawer(velocity = 0) {
+    console.log("opened drawer");
     setDrawerOpen(true);
     setYposition({
       drawerYPosition: drawerThreshold,
@@ -53,11 +54,17 @@ export default function useMusicPlayer() {
       last: isLastEvent,
       active: isDragActive,
       vxvy: movementVelocity,
+      offset,
       event,
+      tap,
     }) => {
       const [mx, my] = movement;
       const [, velocityY] = movementVelocity;
+      const [, offsetY] = offset;
 
+      if (tap) {
+        toggleDrawer();
+      }
       // when drawer reaches the threshold
       if (my < drawerThreshold) cancel();
       // when user stop dragging or just tapped drawer
@@ -65,20 +72,23 @@ export default function useMusicPlayer() {
         const userClickedDrawer = Math.abs(mx) + Math.abs(my) <= 3;
         const userDraggedFast = velocityY < -0.1;
         if (userDraggedFast) openDrawer(velocityY);
-        else if (userClickedDrawer) toggleDrawer();
+        /* else if (userClickedDrawer) toggleDrawer(); */
       }
 
       // when dragging is happening
       if (isDragActive) {
         setYposition({
-          drawerYPosition: my,
+          drawerYPosition: offsetY,
           immediate: false,
           config: config.stiff,
         });
       }
     },
     {
+      initial: () => [0, drawerYPosition.startPosition],
       rubberband: true,
+      axis: "y",
+      filterTaps: true,
       bounds: { bottom: 0, top: drawerThreshold },
     }
   );
