@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { useDrag } from "react-use-gesture";
 import { useSpring, config } from "react-spring";
 import useWindow from "hooks/useWindow";
@@ -58,7 +58,7 @@ export default function useMusicPlayer() {
       event,
       tap,
     }) => {
-      const [mx, my] = movement;
+      const [, my] = movement;
       const [, velocityY] = movementVelocity;
       const [, offsetY] = offset;
 
@@ -69,7 +69,7 @@ export default function useMusicPlayer() {
       if (my < drawerThreshold) cancel();
       // when user stop dragging or just tapped drawer
       if (isLastEvent) {
-        const userClickedDrawer = Math.abs(mx) + Math.abs(my) <= 3;
+        /* const userClickedDrawer = Math.abs(mx) + Math.abs(my) <= 3; */
         const userDraggedFast = velocityY < -0.1;
         if (userDraggedFast) openDrawer(velocityY);
         /* else if (userClickedDrawer) toggleDrawer(); */
